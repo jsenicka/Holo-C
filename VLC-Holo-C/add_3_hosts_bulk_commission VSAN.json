@@ -1,0 +1,25 @@
+{
+    "hostsSpec": [
+        {
+            "hostfqdn": "esxi-10.holo-c.vcf.lab",
+            "username": "root",
+            "password": "VMware123!",
+            "storageType": "VSAN",
+            "networkPoolName": "mgmt-networkpool"
+        },        
+		{
+            "hostfqdn": "esxi-11.holo-c.vcf.lab",
+            "username": "root",
+            "password": "VMware123!",
+            "storageType": "VSAN",
+            "networkPoolName": "mgmt-networkpool"
+        },       
+		{
+            "hostfqdn": "esxi-12.holo-c.vcf.lab",
+            "username": "root",
+            "password": "VMware123!",
+            "storageType": "VSAN",
+            "networkPoolName": "mgmt-networkpool"
+        }
+    ]
+}
