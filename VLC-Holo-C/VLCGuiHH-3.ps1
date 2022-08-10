@@ -3235,7 +3235,7 @@ $startupHostCode = {
 		exit
 	}
     write-host "Add CD/ISO $VM_name"
-    New-CDDrive -VM $VM_name -ISOPath "[$ds] ISO-$global:vmPrefix\VLC_vSphere.iso" -StartConnected:$true -Confirm:$false | Out-Null
+    New-CDDrive -VM $VM_name -ISOPath "[$ds] ISO-$vmPrefix\VLC_vSphere.iso" -StartConnected:$true -Confirm:$false | Out-Null
 
 	Start-VM -VM $VM_Name | Out-Null
 
@@ -3659,12 +3659,12 @@ Invoke-Expression -command "& '$isoExe' $isoExeArg" | out-null
 $ds = Get-Datastore $userOptions.ds
 logger "Uploading Custom vSphere ISO to the \ISO directory of $($ds)"
 New-PSDrive -Name vsands -PSProvider VimDatastore -Datastore $ds -Root "/"
-$isoDir = "vsands:\ISO-$global:vmPrefix"
+$isoDir = "vsands:\ISO-$vmPrefix"
 if (!$isoDir) {
-    mkdir "vsands:\ISO-$global:vmPrefix"
+    mkdir "vsands:\ISO-$vmPrefix"
 }
 
-Copy-DatastoreItem ("$scriptDir\Temp\VLC_vSphere.iso")  "vsands:\ISO-$global:vmPrefix\VLC_vSphere.iso" -Force
+Copy-DatastoreItem ("$scriptDir\Temp\VLC_vSphere.iso")  "vsands:\ISO-$vmPrefix\VLC_vSphere.iso" -Force
 Remove-PSDrive -Name "vsands"
 
 $hostJobs=@()
